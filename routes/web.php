@@ -18,6 +18,7 @@ Route::resource('reservation', ReservationController::class)->names('reservation
 
 Route::POST('reservation/buscador',[ReservationController::class,'obtenerReservacion'])->name('reservation.buscador');
 
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

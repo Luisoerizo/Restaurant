@@ -3,28 +3,32 @@
         <label>
         Buscar registros
         </label>
-        <input wire:model="search" type="text"placeholder="Ingresa el nombre del post" class="form-control">
+        <input wire:model="search" type="text"placeholder="Ingresa el nombre del cliente" class="form-control">
     </div>
-    @if ($posts->count())
+    @if ($reservations->count())
     <div class="card-body">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Category</th>
+                    <th>Cliente</th>
+                    <th>Comensales</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    
                     <th colspan="2">Options</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($posts as $post)
+                @foreach ($reservations as $reservation)
                     <tr>
-                        <td>{{$post->id}}</td>
-                        <td>{{$post->name}}</td>
-                        <td>{{$post->category->name}}</td>
-                        <td width="10px"><a class="btn btn-primary btn-sm" href="{{route('admin.posts.edit',$post)}}">Editar</a></td>
+                        <td>{{$reservation->client_name}}</td>
+                        <td>{{$reservation->persons}}</td>
+                        <td>{{$reservation->date}}</td>
+                        <td>{{$reservation->time}}</td>
+
+                        <td width="10px"><a class="btn btn-primary btn-sm" href="{{route('admin.reservations.edit',$reservation)}}">Editar</a></td>
                         <td width="10px">
-                            <form action="{{route('admin.posts.destroy',$post)}}" method="POST">
+                            <form action="{{route('admin.reservations.destroy',$reservation)}}" method="POST">
                                 @csrf
                                 @method('delete')
 
@@ -38,7 +42,7 @@
         </table>
     </div>
     <div class="card-footer">
-        {{$posts->links()}}
+        {{$reservations->links()}}
     </div>
     @else
         <div class="card-body text-center g">

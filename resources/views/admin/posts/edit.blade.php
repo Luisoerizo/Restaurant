@@ -7,8 +7,10 @@
 
 @section('content')
     @if (session('info'))
-        <div class="alert alert-success" role="alert">
-            <span>{{ session('info') }}</span>
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-check"></i> Registro eliminado</h5>
+            {{ session('info') }}
         </div>
     @endif
     <div class="card">

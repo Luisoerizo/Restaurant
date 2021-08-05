@@ -110,10 +110,10 @@ class PostController extends Controller
                 ]);
             }
         }
-
-        foreach ($request->tags as $tag_id) {
-            $post->tags()->attach($tag_id);
+        if ($request->tags) {
+            $post->tags()->sync($request->tags);
         }
+
 
         return redirect()->route('admin.posts.edit', $post)->with('info', 'El post se actualizó con éxito');
     }
@@ -126,6 +126,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('admin.posts.index', $post)->with('info', 'Registro eliminado');
     }
 }

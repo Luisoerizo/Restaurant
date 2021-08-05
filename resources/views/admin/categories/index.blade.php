@@ -7,11 +7,14 @@
 
 @section('content')
 
-    @if (session('info'))
-        <div class="alert alert-success" role="alert">
-            <span>{{ session('info') }}</span>
-        </div>
 
+
+    @if (session('info'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-check"></i> Registro eliminado</h5>
+            {{ session('info') }}
+        </div>
     @endif
 
     <div class="card">
@@ -34,7 +37,11 @@
                             <td width="10px"><a class="btn btn-primary btn-sm"
                                     href="{{ route('admin.categories.edit', $category) }}">Editar</a></td>
                             <td width="10px">
-
+                                <form action="{{ route('admin.categories.destroy', $category) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

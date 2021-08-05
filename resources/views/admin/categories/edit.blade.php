@@ -9,10 +9,12 @@
     <div class="card">
         <div class="card-body">
             @if (session('info'))
-                <div class="alert alert-success" role="alert">
-                    <span>{{ session('info') }}</span>
-                </div>
-            @endif
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h5><i class="icon fas fa-check"></i> Registro eliminado</h5>
+                {{ session('info') }}
+            </div>
+        @endif
             {!! Form::model($category, ['route' => ['admin.categories.update', $category], 'method' => 'put']) !!}
             <div class="form-group">
                 {!! Form::label('name', 'Nombre') !!}

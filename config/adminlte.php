@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
-    'title_prefix' => '',
+    'title' => '',
+    'title_prefix' => 'Restaurante | ',
     'title_postfix' => '',
 
     /*
@@ -229,7 +229,7 @@ return [
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
-            'topnav_right' => true,
+            'topnav_right' => null,
         ],
         [
             'type'         => 'fullscreen-widget',
@@ -237,10 +237,6 @@ return [
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -251,7 +247,13 @@ return [
             'route'         => 'admin.home',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
         ],
-        ['header' => 'ADMINISTRADOR'],
+        ['header' => 'OPCIONES DE BLOG'],
+        [
+            'text'       => 'Lista de Posts',
+            'route' => 'admin.posts.index',
+            'icon' => 'fas fa-fw fa-clipboard-list',
+            'active' => ['admin/posts*']
+        ],
         [
             'text' => 'Categorías',
             'route'  => 'admin.categories.index',
@@ -264,17 +266,15 @@ return [
             'icon' => 'fas fa-tags fa-fw',
             'active' => ['admin/tags*']
         ],
-        ['header' => 'OPCIONES DE BLOG'],
+        ['header' => 'RESERVACIONES'],
         [
-            'text'       => 'Lista de Posts',
-            'route' => 'admin.posts.index',
-            'icon' => 'fas fa-fw fa-clipboard-list'
+            'text'       => 'Lista de reservaciones',
+            'route' => 'admin.reservations.index',
+            'icon' => 'fas fa-fw fa-clipboard-list',
+            'active' => ['admin/reservations*']
         ],
-        [
-            'text'       => 'Crer nuevo Post',
-            'route' => 'admin.posts.create',
-            'icon' => 'fas fa-fw fa-file-alt'
-        ],
+
+
     ],
 
     /*
@@ -348,7 +348,7 @@ return [
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
