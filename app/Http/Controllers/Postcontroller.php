@@ -9,11 +9,11 @@ use App\Models\Tag;
 
 class Postcontroller extends Controller
 {
-    public function index()
+    public function index(Post $post)
     {
-        $posts= Post::where('status',2)->latest('id')->paginate(9);
-        
+        $this->authorize('published',$post);
 
+        $posts= Post::where('status',2)->latest('id')->paginate(9);
         return view('posts.index',compact('posts'));
     }
 

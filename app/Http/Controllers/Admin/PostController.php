@@ -76,7 +76,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Post $post)  //TODO cuando se implementen usuarios editar esta parte
     {
         $tags = Tag::all();
         $categories = Category::pluck('name', 'id');
@@ -90,7 +90,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, Post $post)
+    public function update(PostRequest $request, Post $post) //TODO cuando se implementen usuarios editar esta parte
     {
 
         $post->update($request->all());
@@ -124,7 +124,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Post $post) //TODO cuando se implementen usuarios editar esta parte
     {
         $post->delete();
 
