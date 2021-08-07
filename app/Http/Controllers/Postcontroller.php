@@ -9,16 +9,15 @@ use App\Models\Tag;
 
 class Postcontroller extends Controller
 {
-    public function index(Post $post)
+    public function index()
     {
-        $this->authorize('published',$post);
-
         $posts= Post::where('status',2)->latest('id')->paginate(9);
         return view('posts.index',compact('posts'));
     }
 
     public function show(Post $post)
     {
+        $this->authorize('published',$post);
         $similares = Post::where('category_id',$post->category_id)
                                 ->where('status',2)
                                 ->where('id','!=',$post->id)

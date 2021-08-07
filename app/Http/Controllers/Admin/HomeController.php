@@ -49,7 +49,7 @@ class HomeController extends Controller
          //Posts filtrados para el chart        
          $data = Post::select('status',DB::raw('count(id) as total'))->groupBy('status')->get();
 
-         return response()->json($data);
+         return json_encode($data);
     }
 
 }
