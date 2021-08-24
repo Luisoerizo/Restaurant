@@ -63,6 +63,8 @@ Ahora en la carpeta  ```C:\xampp\apache\conf\extra``` selecciona el archivo
 </VirtualHost>
 ```
 
+Posteriormente solo reinicia tu servicio de Apache.
+
 ## Variables de entorno
 
 Variables de entorno utilizadas en este proyecto en el archivo .env
