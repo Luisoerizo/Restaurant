@@ -13,7 +13,7 @@ Clonar el proyecto
 Ir al directorio del proyecto
 
 ```bash
-  cd blog
+  cd restaurant
 ```
 
 Instalar las dependencias
