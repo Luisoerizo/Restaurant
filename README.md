@@ -67,13 +67,19 @@ Posteriormente solo reinicia tu servicio de Apache.
 
 ## Variables de entorno
 
-Variables de entorno utilizadas en este proyecto en el archivo .env
+Para configurar correctamente tus variables de entorno utilizadas en este proyecto, cambia el nombre al archivo ".env.example" a  ".env" y modifica las líneas siguientes
 
 `FILESYSTEM_DRIVER = public` 
 
 `DB_DATABASE= restaurant`
 
 `APP_URL=http://restaurant.test/`
+
+##Migraciones y seeders
+A continuación, ingresa la siguiente línea de comando para ejecutar las migraciones y los seeders. 
+```php artisan migrate --seed```
+
+
 ## Documentación
 
 [Laravel](https://laravel.com/docs/8.x)
