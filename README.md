@@ -30,6 +30,12 @@ Base de datos (en cualquier gestor de bbdd)
   create database 'restaurant'
 ```
 
+## Migraciones y seeders
+A continuación, ingresa la siguiente línea de comando para ejecutar las migraciones y los seeders. 
+```php artisan migrate --seed```
+
+Si te marca un error al momento de crear las imagenes, prueba a crear manualmente el directorio ```bash posts``` en /restaurante/public/storage/
+
 Iniciar servidor
 ```bash
   php artisan serve
@@ -75,9 +81,6 @@ Para configurar correctamente tus variables de entorno utilizadas en este proyec
 
 `APP_URL=http://restaurant.test/`
 
-##Migraciones y seeders
-A continuación, ingresa la siguiente línea de comando para ejecutar las migraciones y los seeders. 
-```php artisan migrate --seed```
 
 
 ## Documentación
